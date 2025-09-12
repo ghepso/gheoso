@@ -4,63 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Long Hổ Bead Road</title>
-
 <style>
-  body {
-    font-family: 'Kanit', sans-serif;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 10px;
-    background: #f9f9f9;
-  }
-
+  body { font-family: 'Kanit', sans-serif; max-width: 720px; margin: 0 auto; padding: 10px; background: #f9f9f9; }
   h2 { text-align: center; }
-
-  table {
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-  }
-
-  td {
-    border: 1px solid gray;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  td img {
-    width: 18px;
-    height: 18px;
-  }
-
-  .button {
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    margin: 5px;
-    color: #fff;
-  }
-
+  table { border-collapse: collapse; table-layout: fixed; width: 100%; }
+  td { border: 1px solid gray; width: 20px; height: 20px; text-align: center; vertical-align: middle; }
+  td img { width: 18px; height: 18px; }
+  .button { padding: 15px 30px; font-size: 18px; cursor: pointer; outline: none; border: none; border-radius: 10px; margin: 5px; color: #fff; }
   .long { background-color: red; }
   .ho { background-color: gold; color: black; }
   .undo { background-color: gray; }
   .clear { background-color: black; }
-
-  #button {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  #beadroadtable {
-    margin-top: 20px;
-    overflow-x: auto;
-  }
+  #button { text-align: center; margin-bottom: 20px; }
+  #beadroadtable { margin-top: 20px; overflow-x: auto; }
 </style>
 </head>
 <body>
@@ -68,8 +24,8 @@
 <h2>Long Hổ Bead Road</h2>
 
 <div id="button">
-  <button class="button long" onclick="insert('L')">B</button>
-  <button class="button ho" onclick="insert('H')">P</button>
+  <button class="button long" onclick="insert('L')">Long</button>
+  <button class="button ho" onclick="insert('H')">Hổ</button>
   <button class="button undo" onclick="undo()">&lt;</button>
   <button class="button clear" onclick="clearTable()">C</button>
 </div>
@@ -95,7 +51,7 @@
 let history = [];
 
 function insert(symbol) {
-  history.push(symbol);
+  history.push(symbol); // L hoặc H
   updateTable();
 }
 
@@ -129,8 +85,6 @@ function updateTable() {
     const cell = document.getElementById('cell_'+row+'_'+col);
     if(sym === 'L') cell.innerHTML = '<img src="long.png">';
     if(sym === 'H') cell.innerHTML = '<img src="ho.png">';
-    if(sym === 'T') cell.innerHTML = '<img src="tie.png">';
-
     row++;
     if(row > rows){
       row = 1;
